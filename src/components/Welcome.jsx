@@ -1,11 +1,13 @@
-import { Alert, Container, Row, Col } from "react-bootstrap";
+import { Alert, Container, Row, Col,Button } from "react-bootstrap";
+import { useState } from 'react';
 
 const Welcome = () => {
+    const [show, setShow] = useState(true);
   return (
-    <Container className="my-5">
+    <Container className="my-4">
       <Row className="justify-content-center text-center">
         <Col xs={12} md={8} lg={6}>
-          <Alert variant="success">
+          <Alert variant="success" show={show}>
             <h4>Benvenuto su Epibrary!</h4>
             <p>
               Scopri prodotti fantastici e offerte imperdibili. Siamo felici di
@@ -16,6 +18,9 @@ const Welcome = () => {
               Il posto giusto per trovare i migliori libri, gadget e tanto
               altro!
             </h5>
+            <Button onClick={() => setShow(false)} variant="outline-success">
+            Close me
+          </Button>
           </Alert>
         </Col>
       </Row>
