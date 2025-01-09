@@ -1,22 +1,22 @@
 import { Container, Form, Col, Row, Button } from "react-bootstrap";
-import Book from "../data/horror.json";
 import "./AllTheBooks.css";
 import SingleBook from "./SingleBook";
 import { Component } from "react";
 
+
 class BookList extends Component {
   state = {
     searchInput: "",
-    array:Book
+    array:  this.props.books || [],
   };
 
-submit=(e)=>{
+  submit = (e) => {
     e.preventDefault();
-    const filter = Book.filter((item)=>
-    item.title.toLowerCase().includes(this.state.searchInput.toLowerCase()))
-    this.setState({array:filter})
-
-}
+    const filter = this.props.books.filter((item) =>
+      item.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
+    );
+    this.setState({ array: filter });
+  };
 
   render() {
     return (
@@ -27,12 +27,11 @@ submit=(e)=>{
               <Row className=" justify-content-center mb-3">
                 <Col xs={4}>
                   <Form.Control
-                    required
                     value={this.state.searchInput}
-                    onChange={(e)=>{
-                        this.setState({
-                            searchInput:e.target.value
-                        })
+                    onChange={(e) => {
+                      this.setState({
+                        searchInput: e.target.value,
+                      });
                     }}
                     type="text"
                     placeholder="Cerca"

@@ -6,12 +6,14 @@ import MyFooter from "./components/MyFooter";
 //import AllTheBoooks from "./components/AllTheBooks";
 import Welcome from "./components/Welcome";
 import BookList from "./components/BookList";
+import Category from "./components/Category"
 
 function App() {
   return (
     <>
       <MyNav />
       <Welcome />
+      <Category/>
       <BookList />
       <MyFooter />
     </>
