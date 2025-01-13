@@ -6,34 +6,25 @@ import {
     Button,
     CardGroup,
 } from "react-bootstrap";
+//import CommentArea from "./CommentArea";
 
 class SingleBook extends Component{
-    state={
-        selected:false
-    }
-
-    toggleSelected = () => {
-        this.setState((current) => ({
-          selected: !current.selected,
-        }));
-      };
 
 render(){
     return (
         <Col>
              <Card
-          className="mb-3"
+          className={`mb-3 ${this.props.isSelected ? "border border-danger" : ""}`}
           style={{
-            height: "480px",
-            border: this.state.selected ? "1px solid red" : "1px solid #dee2e6",}}
-          onClick={this.toggleSelected}
+            height: "480px"}}
+            onClick={() => this.props.selected(this.props.book.asin)}
         >
-                <Card.Img variant="top" src={this.props.img} alt={this.props.title} style={{ height: "300px", objectFit: "cover" }} />
+                <Card.Img variant="top" src={this.props.book.img} alt={this.props.book.title} style={{ height: "300px", objectFit: "cover" }} />
                 <Card.Body className="d-flex flex-column">
                     <div>
-                        <Card.Title className="short">{this.props.title}</Card.Title>
+                        <Card.Title className="short">{this.props.book.title}</Card.Title>
                         <Badge bg="warning" text="dark">
-                            {this.props.category}
+                            {this.props.book.category}
                         </Badge>
                     </div>
                     <CardGroup className="d-flex justify-content-center gap-2 mt-auto">
@@ -46,6 +37,7 @@ render(){
                     </CardGroup>
                 </Card.Body>
             </Card>
+            {/*this.state.selected && <CommentArea asin={this.props.book} />*/}
         </Col>
     );
 }
