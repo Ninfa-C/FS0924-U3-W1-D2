@@ -63,7 +63,6 @@ class BookList extends Component {
     this.setState({ displayedBooks: filteredBooks });
   };
 
-
   selected = (asin) => {
     if (this.state.selected !== asin) {
       this.setState({ selected: asin, showComment: true });
@@ -114,7 +113,11 @@ class BookList extends Component {
             </Row>
           </Col>
           {this.state.showComment && (
-            <Col xs={2}>
+            <Col
+              xs={12}
+              md={2}
+              className="container-fluid p-0 sticky-col"
+            >
               <h2 className="text-center">Comment Section</h2>
               <CommentArea asin={this.state.selected} />
             </Col>
@@ -126,6 +129,3 @@ class BookList extends Component {
 }
 
 export default BookList;
-
-
-

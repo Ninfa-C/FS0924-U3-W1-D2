@@ -16,7 +16,7 @@ render(){
              <Card
           className={`mb-3 ${this.props.isSelected ? "border border-danger" : ""}`}
           style={{
-            height: "510px"}}
+            height: "520px"}}
             onClick={() => this.props.selected(this.props.book.asin)}
         >
                 <Card.Img variant="top" src={this.props.book.img} alt={this.props.book.title} style={{ height: "300px", objectFit: "cover" }} />

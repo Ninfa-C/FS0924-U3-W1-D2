@@ -53,7 +53,7 @@ if(prevProps.asin!== this.props.asin)
         {this.state.isLoading && <Loading />}
         {this.state.isError && <Error />}
         <AddComment asin={this.props.asin} />
-        <CommentList commentsToShow={this.state.comments} />
+        <CommentList commentsToShow={this.state.comments}/>
       </div>
     )
   }
