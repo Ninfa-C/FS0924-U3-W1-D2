@@ -71,9 +71,11 @@ class BookList extends Component {
     }
   };
 
+  //asin === this.state.selected? null : asin  avrei potuto mettere questo
+
   render() {
     return (
-      <Container className="my-3">
+      <Container className="my-2">
         <Row>
           <Form onSubmit={this.handleSearch}>
             <Row className="justify-content-center mb-3">
